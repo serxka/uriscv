@@ -1,0 +1,9 @@
+[build]
+target = "riscv64gc-unknown-none-elf"
+rustflags = ['-Clink-arg=-Tlink.ld']
+
+[target.riscv64gc-unknown-none-elf]
+runner = "qemu-system-riscv64 -machine virt -cpu rv64 -smp 4 -m 128M -serial mon:stdio -bios none -kernel "
+
+[target.test]
+runner = "qemu-system-riscv64 -machine virt -cpu rv64 -smp 4 -m 128M -display none -serial mon:stdio -bios none -kernel "
